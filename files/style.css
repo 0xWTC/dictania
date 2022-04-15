@@ -1,0 +1,99 @@
+#gifBody {
+	max-height: 100%;max-width: 100%;text-align: center;background-size: cover;background-position: 50% 50%;background-attachment: fixed;font-weight: normal;
+}
+
+#gifBody2 {
+	max-height: 100%;max-width: 100%;background-size: contain;text-align: center;background-position: 50% 50%;background-attachment: fixed;font-weight: normal;background-repeat: no-repeat;background-color: black;
+}
+
+#gifBodySpin {
+  text-align: center;background-size: contain;animation: animatedBackgroundSpin 10s linear infinite;background-attachment:fixed;
+}
+
+#animGifBody {
+	text-align: center;background-size: contain;animation: animatedBackground 60s ease-in-out infinite;background-repeat:repeat-x;background-attachment:fixed;font-weight: normal;
+}
+
+#bigHead {
+	margin: 0 auto;color:white;font-size: 50pt;border: 6px double white; font-family: vcr;font-weight: normal;
+}
+
+#animRush {
+	max-height: 100%;max-width: 100%;text-align: center;animation: animatedBackground 30s ease-in-out 1;background-repeat:repeat-x;background-attachment:fixed;background-color:black;
+}
+
+#alignVerticalTable {
+  position: absolute;height: 70%;width: 99.1%;  
+}
+
+#alignVerticalTable2 {
+  position: absolute;height: 90%;width: 99.1%;  
+}
+
+#jiggle {
+  animation: jiggle 5s ease-in-out infinite;
+}
+
+@keyframes animatedBackground {
+	0% { background-position: 0 0; }
+	100% { background-position: 100000% 0; }
+}
+
+@keyframes jiggle {
+    0% { transform: rotatey(10deg) rotatex(10deg) translate(5px,5px) rotatez(2deg)}
+    50% { transform: translate(-5px,5px) rotatey(-10deg) rotatex(-10deg) rotatez(-2deg)}
+    100% { transform: rotatey(10deg) rotatex(10deg) translate(5px,5px) rotatez(2deg)}
+}
+
+@keyframes animatedScale {
+  0% { background-size: 100%; }
+	32% { background-size:1%; background-position: 50% 50%; }
+	51% { background-position: 400% 0; background-size: 100%; }
+	80% { background-position: 40000% 0; background-size: 200%; }
+	95% { background-position: 1000000% 100000%; background-size: 500%; }
+	100 % { background position: 1000050% 100050%; background-size: 100%; }
+}
+
+@font-face {
+    font-family: vcr;
+    src: url(/vcr2.ttf);
+}
+
+.enlargeLinearSpin {
+    z-index:0;
+    width: 100%;
+    position: relative;
+    transition: 5s ease;
+    cursor: pointer;
+}
+
+.enlargeLinearSpin:hover {
+    transform: scale(3, 3) rotatez(360deg) rotatex(360deg) rotatey(360deg);
+}
+
+.enlargeSpin {
+    z-index:0;
+    width: 100%;
+    position: relative;
+    transition: 0.6s ease;
+    cursor: pointer;
+}
+
+.enlargeSpin:hover {
+    transform: scale(1.4, 1.4) translate(0,-10%);
+}
+
+.enlarge {
+    z-index:0;
+    width: 100%;
+    position: relative;
+    transition: 0.4s ease;
+    cursor: pointer;
+}
+
+.enlarge:hover {
+    transform: scale(1.2, 1.2) translate(0,-5%);
+}
+  body{cursor: url(./files/cursor.cur), progress !important;}
+
+	

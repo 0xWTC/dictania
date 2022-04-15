@@ -1,0 +1,992 @@
+<html>
+
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+	    <title>D I C T A N I A</title>
+	    <link rel="shortcut icon" type="image/ico" href="./files/favicon.ico">
+	    <meta name="description" content="D I C T A N I A   WILL SOON INTO SPACE">
+
+	    <script src="./files/jquery-3.1.1.min.js"></script>
+	    <link href="https://fonts.googleapis.com/css?family=Arsenal|Overpass+Mono" rel="stylesheet">
+
+	    <script type="text/javascript">
+// <![CDATA[
+var colour="#fff";
+var sparkles=120;
+var x=ox=400;
+var y=oy=300;
+var swide=800;
+var shigh=600;
+var sleft=sdown=0;
+var tiny=new Array();
+var star=new Array();
+var starv=new Array();
+var starx=new Array();
+var stary=new Array();
+var tinyx=new Array();
+var tinyy=new Array();
+var tinyv=new Array();
+
+window.onload=function() { if (document.getElementById) {
+  var i, rats, rlef, rdow;
+  for (var i=0; i<sparkles; i++) {
+    var rats=createDiv(3, 3);
+    rats.style.visibility="hidden";
+    document.body.appendChild(tiny[i]=rats);
+    starv[i]=0;
+    tinyv[i]=0;
+    var rats=createDiv(5, 5);
+    rats.style.backgroundColor="transparent";
+    rats.style.visibility="hidden";
+    var rlef=createDiv(1, 5);
+    var rdow=createDiv(5, 1);
+    rats.appendChild(rlef);
+    rats.appendChild(rdow);
+    rlef.style.top="2px";
+    rlef.style.left="0px";
+    rdow.style.top="0px";
+    rdow.style.left="2px";
+    document.body.appendChild(star[i]=rats);
+  }
+  set_width();
+  sparkle();
+}}
+
+function sparkle() {
+  var c;
+  if (x!=ox || y!=oy) {
+    ox=x;
+    oy=y;
+    for (c=0; c<sparkles; c++) if (!starv[c]) {
+      star[c].style.left=(starx[c]=x)+"px";
+      star[c].style.top=(stary[c]=y)+"px";
+      star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+      star[c].style.visibility="visible";
+      starv[c]=50;
+      break;
+    }
+  }
+  for (c=0; c<sparkles; c++) {
+    if (starv[c]) update_star(c);
+    if (tinyv[c]) update_tiny(c);
+  }
+  setTimeout("sparkle()", 40);
+}
+
+function update_star(i) {
+  if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+  if (starv[i]) {
+    stary[i]+=1+Math.random()*3;
+    if (stary[i]<shigh+sdown) {
+      star[i].style.top=stary[i]+"px";
+      starx[i]+=(i%5-2)/5;
+      star[i].style.left=starx[i]+"px";
+    }
+    else {
+      star[i].style.visibility="hidden";
+      starv[i]=0;
+      return;
+    }
+  }
+  else {
+    tinyv[i]=50;
+    tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+    tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+    tiny[i].style.width="2px";
+    tiny[i].style.height="2px";
+    star[i].style.visibility="hidden";
+    tiny[i].style.visibility="visible"
+  }
+}
+
+function update_tiny(i) {
+  if (--tinyv[i]==25) {
+    tiny[i].style.width="1px";
+    tiny[i].style.height="1px";
+  }
+  if (tinyv[i]) {
+    tinyy[i]+=1+Math.random()*3;
+    if (tinyy[i]<shigh+sdown) {
+      tiny[i].style.top=tinyy[i]+"px";
+      tinyx[i]+=(i%5-2)/5;
+      tiny[i].style.left=tinyx[i]+"px";
+    }
+    else {
+      tiny[i].style.visibility="hidden";
+      tinyv[i]=0;
+      return;
+    }
+  }
+  else tiny[i].style.visibility="hidden";
+}
+
+document.onmousemove=mouse;
+function mouse(e) {
+  set_scroll();
+  y=(e)?e.pageY:event.y+sdown;
+  x=(e)?e.pageX:event.x+sleft;
+}
+
+function set_scroll() {
+  if (typeof(self.pageYOffset)=="number") {
+    sdown=self.pageYOffset;
+    sleft=self.pageXOffset;
+  }
+  else if (document.body.scrollTop || document.body.scrollLeft) {
+    sdown=document.body.scrollTop;
+    sleft=document.body.scrollLeft;
+  }
+  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+    sleft=document.documentElement.scrollLeft;
+	sdown=document.documentElement.scrollTop;
+  }
+  else {
+    sdown=0;
+    sleft=0;
+  }
+}
+
+window.onresize=set_width;
+function set_width() {
+  if (typeof(self.innerWidth)=="number") {
+    swide=self.innerWidth;
+    shigh=self.innerHeight;
+  }
+  else if (document.documentElement && document.documentElement.clientWidth) {
+    swide=document.documentElement.clientWidth;
+    shigh=document.documentElement.clientHeight;
+  }
+  else if (document.body.clientWidth) {
+    swide=document.body.clientWidth;
+    shigh=document.body.clientHeight;
+  }
+}
+
+function createDiv(height, width) {
+  var div=document.createElement("div");
+  div.style.position="absolute";
+  div.style.height=height+"px";
+  div.style.width=width+"px";
+  div.style.overflow="hidden";
+  div.style.backgroundColor=colour;
+  return (div);
+}
+// ]]>
+</script>
+
+
+	    <style>
+
+	    body{cursor: url(./files/cursor.cur), progress !important;}
+
+	    	p {
+	    		font-family: 'Arsenal', sans-serif;
+	    		font-size: 19px;
+				
+	    	}
+
+	    	h1, h2, h3, h4, h5, h6, * {
+			      color:#e0e0e0;
+font-family: 'Overpass Mono', sans-serif;
+			      }
+
+			* {
+	text-align: center;
+	align: center;
+	alignment-adjust: left;
+			}
+
+			html { 
+			
+		        background: url('./files/gif.gif') no-repeat center center fixed; 
+         -webkit-background-size: cover;
+         -moz-background-size: cover;
+          -o-background-size: cover;
+         background-size: cover;
+        }
+    
+    
+        } 
+		
+		
+table, th, td {
+    text-align: left;
+}
+
+	    </style>
+
+
+	</head>
+
+	<body>
+                <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+		<font size="5" color="4afafc">
+            <h1 style="background-color:#9933ff"><br>
+              <i>WELCOME TO  D I C T A N I A<br>
+              <br>
+            </i></h1>
+    </font>
+          <br>
+          <br>
+
+<br>
+                	<img src="files/banania copy.png""><br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+
+          <img src="./files/laurel.png" alt="" /><br>
+          <br>
+
+          <br>
+          <br>
+          <br>
+          <img src="./files/lion.png" alt="" /><br>
+          <br>
+          <br>
+          <br>
+
+          <h1><code><b><u><cite>"Capitalism is a stupid system, a backward
+                    system." </cite></u></b></code></h1>
+          <h1><code>- Banania</code></h1>
+
+
+                    <br>
+          <br>
+          <br>
+          <font size="6"><img src="./files/dolphin.png" alt=""></font>
+          <br>
+          <br>
+          <br>
+
+          <i><h1>Ladies and gentlemen,</br> at this time</br> we ask </br>that</br> you all please</br> rise</br> and sing</br> the national anthem.</h1></i>
+          <br>
+          <br>
+          <br>
+          <font size="6"><img src="./files/dolphins.png" alt=""></font>
+          <br>
+          <br>
+
+          <h2>Hey you, what do you see?<br />Something beautiful, something free?<br />Hey you, are you trying to be mean?<br />If you live with apes man, it's hard to be clean<br /><br />The worms will live in every host<br />It's hard to pick which one they eat most<br /><br />The horrible people, the horrible people<br />It's as anatomic as the size of your steeple<br />Capitalism has made it this way,<br />Old-fashioned fascism will take it away</h2>
+                    <br>
+          <br>
+          <br>
+          <font size="6"><img src="./files/shark.png" alt=""></font>
+          <br>
+          <br>
+          <br>
+
+         <h1 style="background-color:#9933ff">&nbsp;</h1>
+         <h1 style="background-color:#9933ff">         <br>
+         6 decrees of D I C T A N I S M<br>
+         </h1>
+    <p><img src="files/niesporczak.gif" width="538" height="538"></p>
+    <table width="60%" border="0" align="center">
+            <tr>
+              <td width="14%" height="67"><img src="files/1.png" width="110" height="110"></td>
+              <td width="86%">That the present political and economic situation is unjust and serves only to enrich the few at the expense of the many.</td>
+            </tr>
+            <tr>
+              <td height="42"><img src="files/2.png" width="110" height="110"></td>
+              <td width="86%">That humankind is moving in the direction of Dictanism.</span></td>
+      </tr>
+            <tr>
+              <td height="78"><img src="files/3.png" width="110" height="110"></td>
+              <td>That in order to change the system a root and branch revolution is necessary on 
+              a Dictanist basis with the free commune as the administrative unit.</td>
+            </tr>
+            <tr>
+              <td height="68"><img src="files/4.png" width="110" height="110"></td>
+              <td>That working class people have enormous untapped moral and organisational abilities.</span></td>
+            </tr>
+            <tr>
+              <td height="74"><img src="files/5.png" width="110" height="110"></td>
+              <td>That Dictanism is the only just economic system as any retention of the wage system is based on an arbitrary evaluation of labour, and is therefore necessarily unjust.</td>
+            </tr>
+            <tr>
+              <td height="71"><img src="files/6.png" width="110" height="110"></td>
+              <td>That for the revolution to survive the free Dictanist communes must strive to achieve the highest possible degree of self-sufficiency.</td>
+            </tr>
+    </table>
+    <p><br>
+      <br>
+      <br>
+      <font size="6"><img src="./files/axo.png" alt=""></font>
+      <br>
+    </p>
+    <p><br>
+      <br>
+      
+      
+    </p>
+    <h1><em><strong>D I C T A N I A</strong></em> &nbsp; WILL <u><em><font
+                    size="6">SOON</font></em></u> INTO <em>SPACE</em></h1>
+          <h1><br>
+            <code> </code> &nbsp; <img 
+                  src="./files/station.jpg" alt=""><br>
+          </h1>
+          <h1>&nbsp;</h1>
+    <table width="40%" border="0" align="center">
+  <tr>
+    <td width="29%" height="46"><img src="http://i279.photobucket.com/albums/kk143/faeini1/earth_with_breaking_news_text_hg-1.gif" border="0" alt="breaking news photo: breaking news earth_with_breaking_news_text_hg-1.gif"/></td>
+    <td width="71%"><h1 align="left">&nbsp;</h1>
+      <h1 align="left">BE CAREFUL</h1>
+    <p>FAKE PENGUIN VALUE EVERYWHERE!</p>
+    <p>Watch out for scammers, especially in the exchange offices.<br>
+      Penguins came out of the loop!</p>
+    <p>New currency soon!</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p></td>
+  </tr>
+</table>
+            <p><br>
+              <img src="files/pepe.jpg" width="417" height="520"><br>
+            </p><br>
+            
+    <h1 style="background-color:#000000"><br>
+    PRISON FOR ENEMIES OF DICTANIA
+    <br>
+    <i>click here for short-time visit:</i><br>
+      <BR>
+      <a href="/prison.html"><img src="files/Prisoner.png" width="121" height="244"></a><br><br>
+    </h1>        
+        
+              </h1>
+            </p>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div align="center"><font size="+4" color="#826128">D</font></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div color="#826128" align="center"><font size="+4" color="#826128">ICT</font></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div color="#826128" align="center"><font size="+4" color="#826128"><strong>ANIA</strong></font></div>
+                      </td>
+                    </tr>
+      </tbody>
+    </table>
+                <table width="505" align="center" border="0" cellpadding="0" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>B</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>R</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>C</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>D</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>B</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>R</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>B</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>R</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>C</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>D</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>B</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>R</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>B</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>R</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>C</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>D</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>B</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>B</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>R</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>C</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>D</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>B</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>R</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>C</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>D</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>B</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>R</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>C</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>B</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>R</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>C</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>B</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>R</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>B</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>R</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>B</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td>
+                        <p><font size="+3" color="#826128"><b>A</b></font></p>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                      <td><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+
+            <br>
+            <br>
+            <br>
+
+    <script type="text/javascript" src="http://www.shoutboxy.pl/shoutbox/start.php?key=814693036"></script>
+
+
+            <br>
+            <br>
+            <br>
+            <h1>Make money with us:</h1>
+            <br>
+            <br>
+            <br>
+
+
+            	<a href='money.html'><img src='files/dino.png'></a>
+
+            <br>
+            <br>
+            
+            
+    <br>Population of my beloved people:<br>
+
+
+    <br>
+    <script type = "text/javascript" src = "//www.deszczowce.pl/licznik/licznik.php?id=104580918"></script>
+            <br>
+            <br>
+
+	</body>
+
+</html>
